@@ -26,6 +26,10 @@ updates:
       # Keep both psycopg and psycopg-c together
       patterns:
         - "psycopg*"
+    python-package:
+      # Keep rest of package together
+      patterns:
+        - "*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
