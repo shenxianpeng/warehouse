@@ -19,7 +19,7 @@ updates:
   - dependency-name: "botocore"
   - dependency-name: "botocore-stubs"
   groups:
-     python-package:
+    python-package:
       # Keep rest of package together
       patterns:
         - "*"
