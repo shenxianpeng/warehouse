@@ -2,15 +2,15 @@ version: 2
 
 updates:
   - package-ecosystem: pip
-    directory: "/requirements"
+    directory: /requirements/
     schedule:
       interval: daily
-    open-pull-requests-limit: 10
-    allow:
-      - dependency-type: all
+    # open-pull-requests-limit: 10
+    # allow:
+    #   - dependency-type: all
     rebase-strategy: "disabled"
     groups:
-      python-package:
+      python-requirements:
         # Keep rest of package together
         patterns:
           - "*"
