@@ -5,9 +5,9 @@ updates:
     directory: /requirements/
     schedule:
       interval: daily
-    # open-pull-requests-limit: 10
-    # allow:
-    #   - dependency-type: all
+    open-pull-requests-limit: 20
+    allow:
+      - dependency-type: all
     rebase-strategy: "disabled"
     groups:
       python-requirements:
