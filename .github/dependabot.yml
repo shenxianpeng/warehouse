@@ -10,19 +10,16 @@ updates:
       - dependency-type: all
     rebase-strategy: "disabled"
     groups:
-      python-requirements:
+      requirements:
         # Keep rest of package together
-        patterns:
-          - "*"
+        patterns: ["*"]
+        exclude-patterns: ["celery", "kombu", "psycopg*"]
       celery:
         # Keep both celery and kombu together
-        patterns:
-          - "celery"
-          - "kombu"
+        patterns: ["celery", "kombu"]
       psycopg:
         # Keep both psycopg and psycopg-c together
-        patterns:
-          - "psycopg*"
+        patterns: ["psycopg*"]
     ignore:
       # Always ignore elasticsearch, future versions are always incompatible with our provider
       - dependency-name: "elasticsearch"
