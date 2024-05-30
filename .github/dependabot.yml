@@ -13,13 +13,13 @@ updates:
       requirements:
         # Keep rest of package together
         patterns: ["*"]
-        exclude-patterns: ["celery", "kombu", "psycopg*"]
-      celery:
-        # Keep both celery and kombu together
-        patterns: ["celery", "kombu"]
-      psycopg:
-        # Keep both psycopg and psycopg-c together
-        patterns: ["psycopg*"]
+      #   exclude-patterns: ["celery", "kombu", "psycopg*"]
+      # celery:
+      #   # Keep both celery and kombu together
+      #   patterns: ["celery", "kombu"]
+      # psycopg:
+      #   # Keep both psycopg and psycopg-c together
+      #   patterns: ["psycopg*"]
     ignore:
       # Always ignore elasticsearch, future versions are always incompatible with our provider
       - dependency-name: "elasticsearch"
