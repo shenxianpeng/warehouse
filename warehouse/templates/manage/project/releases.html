@@ -81,6 +81,14 @@
                 {% trans %}Un-yank{% endtrans %}
               </a>
             </li>
+            <li>
+              {% set confirm_name = "delete_release" %}
+              {% set slug = confirm_name + '-modal-{}'.format(loop.index) %}
+              <a href="#{{ slug }}" class="dropdown__link">
+                <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                {% trans %}Delete{% endtrans %}
+              </a>
+            </li>
             {% else %}
             <li>
               <a href="{{ request.route_path('manage.project.release', project_name=project.name, version=release.version) }}" class="dropdown__link">
@@ -118,6 +126,15 @@
           {% set slug = 'unyank_release-modal-{}'.format(loop.index) %}
           {% set title = gettext("Un-yank release") %}
           {{ confirm_modal(title, gettext('Version'), 'unyank_version', release.version, slug, custom_warning_text=version_warning_text, action=action, warning=False) }}
+
+          {% set slug = 'unyank_release-modal-{}'.format(loop.index) %}
+          {% set title = gettext("Delete release") %}
+          {% set custom_warning_text %}
+          <p>{% trans %}You will not be able to re-upload a new distribution of the same type with the same version number.{% endtrans %}</p>
+          <p>{% trans %}Deletion will break any downstream projects relying on a pinned version of this package. It is intended as a last resort to address legal issues or remove harmful releases.{% endtrans %}</p>
+          <p>{% trans yank_href=request.user_docs_url('/project-management/yanking'), post_href='https://www.python.org/dev/peps/pep-0440/#post-releases', title=gettext('External link') %}Consider making a new release or a <a href="{{ post_href }}" title="{{ title }}" target="_blank" rel="noopener">post release</a> instead.{% endtrans %}</p>
+          {% endset %}
+          {{ confirm_modal(title, gettext('Version'), 'delete_version', release.version, slug, custom_warning_text=custom_warning_text, action=action) }}
         {% else %}
           {% set slug = 'yank_release-modal-{}'.format(loop.index) %}
           {% set title = gettext("Yank release") %}
