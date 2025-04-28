@@ -2302,6 +2302,7 @@ typing-extensions==4.13.2 \
     #   openapi-core
     #   pydantic
     #   pydantic-core
+    #   pyopenssl
     #   sqlalchemy
     #   stripe
 tzdata==2025.2 \
